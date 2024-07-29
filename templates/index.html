@@ -19,7 +19,6 @@
   <!-- Vendor CSS Files -->
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -68,8 +67,8 @@
           <img src="../static/img/me.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <p class="fst-italic">
-            Hi.
+          <p class="box">
+            Hi there!<br><br>I’m Yoshnee, originally from the diverse & vibrant city of Kuala Lumpur in Malaysia. Growing up, I played competitive badminton until I was 17.  I was also a proud Math geek during my secondary school years at SMK Assunta.<br><br>My academic journey took me to the United States, where I pursued a degree in Computer Science & Engineering at UCLA. It was there that I discovered my love for programming, a passion that has fueled a fulfilling decade-long career as a Software Engineer.<br><br>I’ve had the privilege of living in some incredible cities in the U.S. — Los Angeles for 4 years, New York for 7 years, and now I call Boston home. Each city has played a role in shaping who I am today, fostering adaptability and resilience through the varied experiences they offered.<br><br>In my free time, I explore my creativity through various outlets, delve into books and media, or simply unwind and relax. I’m always looking for new ways to grow and enjoy life’s experiences.<br><br>
           </p>
         </div>
       </div>
@@ -108,6 +107,30 @@
             <h3>Movies</h3>
           </div>
         </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-ping-pong-line" style="color: #2EFF2E;"></i>
+            <h3>Badminton</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-drop-line" style="color: #00D1D1;"></i>
+            <h3>Swimming</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-restaurant-line" style="color: #6C0BA9;"></i>
+            <h3>Cooking</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-book-open-line" style="color: #FF6961;"></i>
+            <h3>Self-help/Non-fiction books</h3>
+          </div>
+        </div>
       </div>
 
     </div><!-- End Interests -->
@@ -134,10 +157,11 @@
 
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Contact Me</p>
+        <!-- <p>Contact Me</p> -->
       </div>
 
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+      <!-- action="/submit" -->
+      <form role="form" class="email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -155,7 +179,7 @@
         <div class="my-3">
           <div class="loading">Loading</div>
           <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
+          <div class="sent-message"></div>
         </div>
         <div class="text-center"><button type="submit">Send Message</button></div>
       </form>
@@ -170,10 +194,54 @@
   <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../static/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="../static/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../static/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelector('form').onsubmit = function() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.querySelector('textarea[name="message"]').value;
+
+        var request = {
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
+        };
+
+        fetch(`${window.origin}/submit`, {
+          method: "POST",
+          credentials: "include",
+          body: JSON.stringify(request),
+          cache: "no-cache",
+          headers: new Headers({
+            "content-type": "application/json"
+          })
+        }).then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          // Handle errors
+          return response.json().then(errorData => {
+            throw new Error(errorData.response || 'Failed to send message, Please try again!');
+          });
+        }
+      })
+      .then(data => {
+        document.querySelector('.sent-message').innerText = data.response;
+        document.querySelector('.sent-message').style.display = 'block';
+      }).catch(error => {
+        document.querySelector('.error-message').innerText = error.message;
+        document.querySelector('.error-message').style.display = 'block';
+      });
+      return false;
+    };
+   });
+  </script>
 
 </body>
 

@@ -108,7 +108,6 @@
       scrollto(this.hash)
     }
   }, true)
-
   /**
    * Activate/show sections on load with hash links
    */
