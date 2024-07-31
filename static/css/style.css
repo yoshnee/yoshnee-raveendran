@@ -27,11 +27,20 @@ body::before {
   top: 0;
   height: 100vh;
   z-index: -1;
+  background-position: center center;
 }
 
 @media (min-width: 1024px) {
   body::before {
     background-attachment: fixed;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 1023px) {
+  body::before {
+    background-attachment: scroll;
+    background-position: top center;
   }
 }
 
