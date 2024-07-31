@@ -460,7 +460,7 @@ section .container {
 .about-me .content .box {
   font-size: 17px;
   border: 1px solid #18d26e;
-  background-color: #4388e0; /* Light grey background color */
+  background-color: rgba(67, 136, 224, 0.75); /* Light grey background color */
   padding: 10px; /* Padding inside the box */
   border-radius: 5px; /* Rounded corners for the box */
   font-style: italic; /* Italicize text */
@@ -544,36 +544,25 @@ section .container {
 
 .contact .email-form input,
 .contact .email-form textarea {
-  border-radius: 0;
+  border-radius: 4px; /* Slightly rounded corners */
   box-shadow: none;
   font-size: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 0;
-  transition: 0.3s;
 }
 
 .contact .email-form .form-control {
   border: 1px solid #1591ea; /* Light border for input fields */
-  border-radius: 4px; /* Slightly rounded corners */
   padding: 10px; /* Padding inside input fields */
-  font-size: 16px; /* Font size for readability */
   width: 100%; /* Full width */
-  background-color: #1591ea; /* Solid white background for better visibility */
-  color: #fff; /* Dark text color for contrast */
-  box-shadow: none; /* Remove shadow to maintain a flat design */
+  background-color: rgba(21, 145, 234, 0.55); /* Blue background color */
+  color: #fff; /* White text color for contrast */
   transition: background-color 0.3s ease; /* Smooth transition for background color change */
 }
 
 /* On focus */
 .contact .email-form .form-control:focus {
-  background-color: #7CC1D7; /* Slightly lighter background on focus */
+  background-color: #1591ea;; /* rgba(21, 145, 234, 1), full opacity */
   border-color: #007bff; /* Border color on focus for better visibility */
   outline: none; /* Remove default outline */
-}
-
-.contact .email-form input:focus,
-.contact .email-form textarea:focus {
-  background-color: rgba(255, 255, 255, 0.11);
 }
 
 .contact .email-form input::-moz-placeholder,
