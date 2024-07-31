@@ -546,11 +546,29 @@ section .container {
 .contact .email-form textarea {
   border-radius: 0;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 16px;
   background: rgba(255, 255, 255, 0.08);
   border: 0;
   transition: 0.3s;
-  color: #fff;
+}
+
+.contact .email-form .form-control {
+  border: 1px solid #1591ea; /* Light border for input fields */
+  border-radius: 4px; /* Slightly rounded corners */
+  padding: 10px; /* Padding inside input fields */
+  font-size: 16px; /* Font size for readability */
+  width: 100%; /* Full width */
+  background-color: #1591ea; /* Solid white background for better visibility */
+  color: #fff; /* Dark text color for contrast */
+  box-shadow: none; /* Remove shadow to maintain a flat design */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+/* On focus */
+.contact .email-form .form-control:focus {
+  background-color: #7CC1D7; /* Slightly lighter background on focus */
+  border-color: #007bff; /* Border color on focus for better visibility */
+  outline: none; /* Remove default outline */
 }
 
 .contact .email-form input:focus,
