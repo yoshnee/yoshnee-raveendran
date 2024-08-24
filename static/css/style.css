@@ -419,11 +419,10 @@ section .container {
 .section-title p {
   margin: 0;
   margin: -15px 0 15px 0;
-  font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  color: #FF69B4;
 }
 
 /*--------------------------------------------------------------
@@ -460,7 +459,7 @@ section .container {
 .about-me .content .box {
   font-size: 17px;
   border: 1px solid #18d26e;
-  background-color: rgba(67, 136, 224, 0.75); /* Light grey background color */
+  background-color: rgba(67, 136, 224, 0.75); /* Blue background color */
   padding: 10px; /* Padding inside the box */
   border-radius: 5px; /* Rounded corners for the box */
   font-style: italic; /* Italicize text */
@@ -494,6 +493,15 @@ section .container {
 
 .interests .icon-box:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+
+.podcast .content .box {
+  font-size: 17px;
+  border: 1px solid #18d26e;
+  background-color: rgba(67, 136, 224, 0.75); /* Blue background color */
+  padding: 10px; /* Padding inside the box */
+  border-radius: 5px; /* Rounded corners for the box */
+  font-style: italic; /* Italicize text */
 }
 
 .contact .email-form {

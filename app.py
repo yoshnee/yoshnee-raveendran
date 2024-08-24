@@ -26,7 +26,6 @@ def landing_page():
 def submit_contact_form():
     if request.method == 'POST':
         req = request.get_json()
-        print(req)
         name = req['name']
         email = req['email']
         subject = req['subject']
